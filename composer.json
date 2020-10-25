@@ -1,7 +1,8 @@
 {
   "name": "jjsquady/mikrotikapi",
   "description": "An Mikrotik Api Wrapper",
-  "minimum-stability": "dev",
+   "minimum-stability": "dev",
+   "prefer-stable": true,
   "license": "MIT",
   "authors": [
     {
@@ -10,28 +11,43 @@
     }
   ],
   "autoload": {
-    "psr-4": {
-      "jjsquady\\MikrotikApi\\": "src/",
-      "jjsquady\\MikrotikApi\\Tests\\": "tests/"
+        "psr-4": {
+            "jjsquady\\MikrotikApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "jjsquady\\MikrotikApi\\Tests\\": "tests/"
+        }
+    },
+
+    "require": {
+        "php": "^7.4",
+        "pear2/net_routeros": "1.0.0b6",
+        "pear2/net_transmitter": "1.0.0b2"
+    },
+    "require-dev": {
+        "laravel/framework": "^8.11",
+        "orchestra/testbench": "^6.2",
+        "phpunit/phpunit": "^9.4"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "jjsquady\\MikrotikApi\\MikrotikServiceProvider"
+            ],
+            "aliases": {
+                "Mikrotik": "jjsquady\\MikrotikApi\\Facades\\MikrotikFacade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
-  },
-  "require-dev": {
-    "laravel/framework": "5.8.*",
-    "phpunit/phpunit": "~7.0",
-    "orchestra/testbench": "~3.8"
-  },
-  "require": {
-    "pear2/net_routeros": "1.0.0b5",
-    "pear2/net_transmitter": "1.0.0a5"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "jjsquady\\MikrotikApi\\MikrotikServiceProvider::class"
-      ],
-      "aliases": {
-        "Mikrotik": "jjsquady\\MikrotikApi\\Facades\\MikrotikFacade::class"
-      }
-    }
-  }
 }

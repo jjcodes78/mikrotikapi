@@ -1,4 +1,4 @@
-# Mikrotik Api for Laravel 5.X (Updated for 5.8+)
+# Mikrotik Api for Laravel 8.x
 WIP - Work In Progress
 
 Instalation
@@ -39,7 +39,7 @@ Insert into `config/app.php` in `facades` array:
 #### Publish the configuration file:
 
 ```
-php artisan vendor:publish --provider=jjsquady\MikrotikApi\MikrotikServiceProvider::class
+php artisan vendor:publish --provider=jjsquady\MikrotikApi\MikrotikServiceProvider
 ```
 
 Basic Usage:
@@ -58,7 +58,7 @@ Set up the host and credentials into .env file:
 
 // create a connection with Mikrotik Router
 
-$conn = Mikrokit::connect()->getConnection();
+$conn = Mikrotik::connect()->getConnection();
  
 if($conn->isConnected()) {
     // you have access to Commands
@@ -69,7 +69,7 @@ if($conn->isConnected()) {
 Getting interfaces:
 ---
 ```$php
-$conn = Mikrokit::connect()->getConnection();
+$conn = Mikrotik::connect()->getConnection();
  
 if($conn->isConnected()) {
     // Get all interfaces
